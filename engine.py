@@ -22,7 +22,7 @@ class Engine:
             if action is None:
                 continue
 
-            action.perfom(self, self.player)
+            action.perform(self, self.player)
 
     def render(self, console: Console, context: Context) -> None:
         self.game_map.render(console)
@@ -32,4 +32,5 @@ class Engine:
 
         context.present(console)
 
-        console.clear()
+        # This is causing the flickering, probably due to a console.flush command. Seems to work without it...
+        #console.clear()
